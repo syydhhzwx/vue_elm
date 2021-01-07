@@ -2,7 +2,7 @@
   <el-container>
     <el-header>Header</el-header>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="200px">员工详情</el-aside>
       <el-main>
         <el-table
           :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
@@ -77,7 +77,7 @@ export default {
   },
   created() {
     this.$axios({
-      url: 'http://127.0.0.1:8000/user/get_user/',
+      url: 'http://127.0.0.1:8000/user/UserView/',
       method: 'get',
     }).then(response => {
       console.log(response.data)

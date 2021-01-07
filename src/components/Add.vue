@@ -12,28 +12,30 @@
 <script>
 export default {
   name: "Add",
-  data(){
+  data() {
     return {
-      name:'',
-      age:'',
-      date:'',
-      addr:'',
-      salary:'',
+      name: '',
+      age: '',
+      date: '',
+      addr: '',
+      salary: '',
     }
   },
-  methods:{
-    add(){
+  methods: {
+    add() {
       console.log(this.name);
       this.$axios({
-        url:'http://127.0.0.1:8000/user/add_user/',
-        metho:'get',
-        params:{
-          name:this.name,
-          age:this.age,
-          date:this.date,
-          addr:this.addr,
-          salary:this.salary,
-        }
+        url: 'http://127.0.0.1:8000/user/UserView/',
+        method: 'post',
+
+        data: {
+          name: this.name,
+          age: this.age,
+          date: this.date,
+          addr: this.addr,
+          salary: this.salary,
+        },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
       }).then(res => {
         console.log(res.data);
         this.$router.push('/user')
